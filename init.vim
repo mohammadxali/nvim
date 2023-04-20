@@ -25,6 +25,8 @@ set smartcase             " Use case sensitive search if there is a capital lett
 set nohlsearch            " Don't highlight search results
 set clipboard=unnamed     " Use system clipboard by default in Windows
 set clipboard=unnamedplus " Use system clipboard by default in Linux
+set relativenumber        " Enable relative numbers 
+set number                " Enable numbers for the currentline (because combined with below)
 
 " Make the yanked region apparent (100ms highlight)
 au TextYankPost * silent! lua vim.highlight.on_yank{timeout=100}
