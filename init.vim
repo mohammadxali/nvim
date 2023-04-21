@@ -12,16 +12,14 @@ set nohlsearch
 set clipboard=unnamed
 " Use system clipboard by default in Linux
 set clipboard=unnamedplus
-" Enable relative numbers 
-set relativenumber
-" Enable numbers for the currentline
-set number
+" Make the yanked region apparent (200ms highlight)
+au TextYankPost * silent! lua vim.highlight.on_yank{ timeout=200 }
 
-" Make the yanked region apparent (100ms highlight)
-au TextYankPost * silent! lua vim.highlight.on_yank{timeout=100}
-
-
-
+if (!exists('g:vscode'))
+    " Enable relative numbers
+    set relativenumber
+    set number
+endif
 
 
 "--------------------------
@@ -42,9 +40,6 @@ nnoremap % K
 vnoremap <leader>q :'<,'>normal @q<CR>
 
 
-
-
-
 "--------------------------
 "|         Plugins        |
 "--------------------------
@@ -54,4 +49,11 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
 
+if (!exists('g:vscode'))
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+endif
+
 call plug#end()
+
+" Attach `init.lua` inside `lua` folder
+lua require("init")
