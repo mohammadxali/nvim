@@ -40,6 +40,8 @@ nnoremap K %
 nnoremap % K
 " Re-runs the macro recorded at q on every line in the selection
 vnoremap <leader>q :'<,'>normal @q<CR>
+" Enable camelCaseMotion for Leader key
+let g:camelcasemotion_key = '<leader>'
 
 
 "--------------------------
@@ -50,6 +52,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
+Plug 'bkad/CamelCaseMotion'
 
 if (!exists('g:vscode'))
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
