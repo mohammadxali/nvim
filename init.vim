@@ -64,6 +64,7 @@ if (!exists('g:vscode'))
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
+    " Requires https://github.com/BurntSushi/ripgrep and https://github.com/sharkdp/fd
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 endif
 
