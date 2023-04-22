@@ -26,8 +26,6 @@ if not vim.g.vscode then
     -- LSP
     local lspconfig = require('lspconfig')
     -- Setup tsserver
-    -- Ensure to install typescript and typescript-language-server using npm globally
-    -- npm install -g typescript typescript-language-server
     lspconfig.tsserver.setup {}
 
     -- Use LspAttach autocommand to only map the following keys
