@@ -27,7 +27,9 @@ endif
 "--------------------------
 
 " Map leader to space key
-let mapleader = " "
+" https://stackoverflow.com/a/446293/6622233
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 " Swap K with % in [v]isual mode
 vnoremap K %
 " Swap % with K in [v]isual mode
