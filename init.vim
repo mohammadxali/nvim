@@ -19,6 +19,9 @@ if (!exists('g:vscode'))
     " Enable relative numbers
     set relativenumber
     set number
+
+    " Default updatetime 4000ms is not good for async update
+    set updatetime=100
 endif
 
 
@@ -46,6 +49,16 @@ let g:camelcasemotion_key = '<leader>'
 if (!exists('g:vscode')) 
     " Telescope
     nnoremap <C-p> <cmd>Telescope find_files<cr>
+
+    " Hunk jumping
+    nmap <leader>gj <Plug>(GitGutterNextHunk)
+    nmap <leader>gk <Plug>(GitGutterPrevHunk)
+endif
+
+if (exists('g:vscode')) 
+    " Hunk jumping
+    nnoremap <leader>gj <Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>
+    nnoremap <leader>gk <Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>
 endif
 
 
@@ -65,6 +78,7 @@ if (!exists('g:vscode'))
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+    Plug 'airblade/vim-gitgutter'
 endif
 
 call plug#end()

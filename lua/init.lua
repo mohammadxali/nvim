@@ -45,4 +45,8 @@ if not vim.g.vscode then
             vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         end,
     })
+
+    -- We already have diagnostics virtual text so there is no need for this
+    -- Since these signs replace the hunks signs (+ | ~ | -) let's disable them
+    vim.diagnostic.config({ signs = false })
 end
