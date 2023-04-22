@@ -57,6 +57,7 @@ Plug 'bkad/CamelCaseMotion'
 if (!exists('g:vscode'))
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'neovim/nvim-lspconfig'
 endif
 
 call plug#end()
