@@ -43,6 +43,11 @@ vnoremap <leader>q :'<,'>normal @q<CR>
 " Enable camelCaseMotion for Leader key
 let g:camelcasemotion_key = '<leader>'
 
+if (!exists('g:vscode')) 
+    " Telescope
+    nnoremap <C-p> <cmd>Telescope find_files<cr>
+endif
+
 
 "--------------------------
 "|         Plugins        |
@@ -58,6 +63,8 @@ if (!exists('g:vscode'))
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 endif
 
 call plug#end()
