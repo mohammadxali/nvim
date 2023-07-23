@@ -17,3 +17,13 @@ We use `tsserver` LSP so we need to ensure the following packages are installed 
 ```
 npm install -g typescript typescript-language-server
 ```
+
+## Screenshots
+
+<div align="center">
+
+# ![dashboard](.github/dashboard.png)
+
+# ![lua](.github/lua.png)
+
+</div>
