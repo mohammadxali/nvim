@@ -53,6 +53,14 @@ if (!exists('g:vscode'))
     " Hunk jumping
     nmap <leader>gj <Plug>(GitGutterNextHunk)
     nmap <leader>gk <Plug>(GitGutterPrevHunk)
+
+    " Opens VIMRC
+    map <leader>ov :vsp $MYVIMRC<CR>
+    " Sources VIMRC
+    map <leader>sv :source $MYVIMRC<CR>
+
+    " Save current file with Ctrl+s
+    nnoremap <C-s> :w<CR>
 endif
 
 if (exists('g:vscode')) 
