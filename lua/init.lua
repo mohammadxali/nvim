@@ -21,12 +21,15 @@ require("lazy").setup({
     {
         'michaeljsmith/vim-indent-object',
     },
+
     {
         'tpope/vim-surround',
     },
+
     {
         'justinmk/vim-sneak',
     },
+
     {
         'bkad/CamelCaseMotion',
     },
@@ -38,39 +41,45 @@ require("lazy").setup({
         priority = 1000,
         cond = isNvimOnly,
     },
+
     {
         'nvim-treesitter/nvim-treesitter',
         cond = isNvimOnly
     },
+
     {
         'neovim/nvim-lspconfig',
         cond = isNvimOnly
     },
+
     {
         'nvim-lua/plenary.nvim',
         cond = isNvimOnly
     },
+
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' },
         cond = isNvimOnly,
     },
+
     {
         "ahmedkhalf/project.nvim",
         cond = isNvimOnly
     },
+
     {
         'airblade/vim-gitgutter',
         cond = isNvimOnly
     },
+
     {
         "goolord/alpha-nvim",
         event = "VimEnter",
         opts = function()
             local dashboard = require("alpha.themes.dashboard")
             local logo = require("config").logo
-
             dashboard.section.header.val = vim.split(logo, "\n")
             dashboard.section.buttons.val = {
                 dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
@@ -92,7 +101,6 @@ require("lazy").setup({
         end,
         config = function(_, dashboard)
             require("alpha").setup(dashboard.opts)
-
             vim.api.nvim_create_autocmd("User", {
                 pattern = "LazyVimStarted",
                 callback = function()
@@ -105,18 +113,19 @@ require("lazy").setup({
         end,
         cond = isNvimOnly
     },
+
     {
         "stevearc/dressing.nvim",
         lazy = true,
         cond = isNvimOnly
     },
+
     {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
         opts = function()
             local icons = require("config").icons
             local Util = require("util")
-
             return {
                 options = {
                     theme = "auto",
