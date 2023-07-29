@@ -70,26 +70,5 @@ if (exists('g:vscode'))
 endif
 
 
-"--------------------------
-"|         Plugins        |
-"--------------------------
-call plug#begin(stdpath('data') . '/plugged')
-
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-surround'
-Plug 'justinmk/vim-sneak'
-Plug 'bkad/CamelCaseMotion'
-
-if (!exists('g:vscode'))
-    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-    Plug 'airblade/vim-gitgutter'
-endif
-
-call plug#end()
-
 " Attach `init.lua` inside `lua` folder
 lua require("init")
