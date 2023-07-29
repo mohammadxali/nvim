@@ -121,6 +121,11 @@ YMMMUP^
         end,
         cond = isNvimOnly
     },
+    {
+        "stevearc/dressing.nvim",
+        lazy = true,
+        cond = isNvimOnly
+    }
 })
 
 if isNvimOnly then
