@@ -31,7 +31,8 @@ require("lazy").setup({
     },
 
     {
-        'bkad/CamelCaseMotion',
+        "chrisgrieser/nvim-spider",
+        lazy = true
     },
 
     -- Neovim specific plugins
@@ -242,6 +243,11 @@ require("lazy").setup({
     },
 })
 
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
 if isNvimOnly then
     -- Colorscheme
     require("tokyonight").setup({ transparent = true })
@@ -250,7 +256,18 @@ if isNvimOnly then
     -- Treesitter
     require("nvim-treesitter.install").prefer_git = false
     require('nvim-treesitter.configs').setup {
-        ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "javascript", "typescript" },
+        ensure_installed = {
+            "c",
+            "cpp",
+            "lua",
+            "luadoc",
+            "luap",
+            "vim",
+            "vimdoc",
+            "query",
+            "javascript",
+            "typescript"
+        },
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,

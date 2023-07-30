@@ -43,8 +43,6 @@ nnoremap K %
 nnoremap % K
 " Re-runs the macro recorded at q on every line in the selection
 vnoremap <leader>q :'<,'>normal @q<CR>
-" Enable camelCaseMotion for Leader key
-let g:camelcasemotion_key = '<leader>'
 
 if (!exists('g:vscode')) 
     " Telescope
@@ -68,7 +66,6 @@ if (exists('g:vscode'))
     nnoremap <leader>gj <Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>
     nnoremap <leader>gk <Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>
 endif
-
 
 " Attach `init.lua` inside `lua` folder
 lua require("init")
