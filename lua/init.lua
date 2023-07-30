@@ -61,17 +61,27 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('telescope').load_extension("workspaces")
+        end,
         cond = isNvimOnly,
-    },
-
-    {
-        "ahmedkhalf/project.nvim",
-        cond = isNvimOnly
     },
 
     {
         'airblade/vim-gitgutter',
         cond = isNvimOnly
+    },
+
+    {
+        "natecraddock/workspaces.nvim",
+        config = function()
+            require("workspaces").setup({
+                hooks = {
+                    open = { "Telescope find_files" },
+                }
+            })
+        end,
+        cond = isNvimOnly,
     },
 
     {
@@ -83,6 +93,7 @@ require("lazy").setup({
             dashboard.section.header.val = vim.split(logo, "\n")
             dashboard.section.buttons.val = {
                 dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+                dashboard.button("l", " " .. " List projects (Workspaces)", ":Telescope workspaces<CR>"),
                 dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
                 dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
