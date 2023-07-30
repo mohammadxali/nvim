@@ -95,6 +95,7 @@ require("lazy").setup({
                 dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
                 dashboard.button("l", " " .. " List projects (Workspaces)", ":Telescope workspaces<CR>"),
                 dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+                dashboard.button("s", " " .. " Search text", ":Telescope live_grep <CR>"),
                 dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
                 dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
                 dashboard.button("p", "󰒲 " .. " Plugins", ":Lazy<CR>"),
