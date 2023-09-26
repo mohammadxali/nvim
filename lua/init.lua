@@ -1,5 +1,6 @@
 -- The boolean flag representing if nvim is loaded **only in nvim** and **not in VSCode** using vscode-neovim extension
 local isNvimOnly = not vim.g.vscode
+local keymap = vim.keymap.set
 
 -- Install and attach "lazy.nvim" to Neovim to manage the plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -247,6 +248,13 @@ require("lazy").setup({
         cond = isNvimOnly
     },
 })
+
+
+keymap({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+keymap({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+keymap({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+keymap({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+keymap("n", "<leader>df", ":Remove!<CR>")
 
 if isNvimOnly then
     -- Colorscheme
