@@ -15,5 +15,6 @@
   "vim-indent-object": { "branch": "master", "commit": "5c5b24c959478929b54a9e831a8e2e651a465965" },
   "vim-sneak": { "branch": "master", "commit": "29ec9167d4a609f74c130b46265aa17eb2736e6a" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
+  "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" },
   "workspaces.nvim": { "branch": "master", "commit": "c8bd98990d322b107e58ff5373038b753a8ef66d" }
 }
