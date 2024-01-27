@@ -392,4 +392,19 @@ if isNvimOnly then
             })
         ),
     })
+else
+    -- VSCode only features
+    -- Allows for multi cursor in VSCode using Ctrl+D
+    -- https://github.com/vscode-neovim/vscode-neovim/issues/1145#issuecomment-1717420994
+    keymap("v", "<D-d>", function()
+        local sel_start = vim.fn.getpos("v")
+        local sel_end = vim.fn.getpos(".")
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), "v", false)
+        vim.defer_fn(function()
+            vim.cmd.startinsert()
+            vim.g.vscode.notify_range_pos("editor.action.addSelectionToNextFindMatch", sel_start[2], sel_end[2],
+                sel_start[3],
+                sel_end[3], true)
+        end, 20)
+    end)
 end
